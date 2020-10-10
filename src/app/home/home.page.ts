@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StudentService } from '../student.service';
+import { Student } from './student.model';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+
+  students: Student[] ;
+  constructor(private studentService : StudentService) { }
+
+  ngOnInit() {
+    this.students=this.studentService.getAllStudent();
+  }
+  ionViewWillEnter(){
+    this.students=this.studentService.getAllStudent();
+  }
 
 }

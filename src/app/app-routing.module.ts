@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'api-data',
+    loadChildren: () => import('./api-data/api-data.module').then( m => m.ApiDataPageModule)
+  },
 ];
 
 @NgModule({
